@@ -1,0 +1,22 @@
+name,category,neighborhood,address,phone,website,description,tags_csv
+Bella's Italian Bistro,Food & Dining,Carytown,3102 W Cary St,Richmond,VA 23221,(804) 555-0123,https://bellas.com,"Authentic Italian cuisine in the heart of Carytown. Family-owned for over 20 years.",italian,family-friendly,romantic
+The Grind Coffee House,Food & Dining,The Fan,1901 W Main St,Richmond,VA 23220,(804) 555-0234,,"Local coffee roaster with cozy atmosphere. Perfect for studying or meetings.",coffee,wifi,quiet,study
+River City Sports,Retail,Shockoe Bottom,1420 E Cary St,Richmond,VA 23219,(804) 555-0345,https://rivercitysports.com,"Full-service sporting goods store. Expert staff and competitive prices.",sports,outdoor,family-friendly
+Carytown Boutique,Retail,Carytown,3115 W Cary St,Richmond,VA 23221,(804) 555-0456,,"Curated selection of women's fashion and accessories. Unique finds!",fashion,affordable
+Midtown Barbershop,Services,The Fan,1809 W Broad St,Richmond,VA 23220,(804) 555-0567,,"Classic barbershop experience. Walk-ins welcome. Great atmosphere.",haircuts,affordable
+Szechuan Garden,Food & Dining,West End,9850 W Broad St,Richmond,VA 23294,(804) 555-0678,https://szechuangarden.com,"Authentic Szechuan cuisine. Spicy dishes and traditional flavors.",chinese,spicy,family-friendly
+The Book Nook,Retail,Carytown,3012 W Cary St,Richmond,VA 23221,(804) 555-0789,,"Independent bookstore with wide selection. Cozy reading corners.",books,quiet,cozy
+FitLife Gym,Services,Short Pump,11501 W Broad St,Richmond,VA 23233,(804) 555-0890,https://fitlifegym.com,"Modern fitness facility with personal trainers. Group classes available.",fitness,gym,outdoor
+Taste of India,Food & Dining,Church Hill,2809 E Broad St,Richmond,VA 23223,(804) 555-0901,https://tasteofindiava.com,"Traditional Indian dishes. Vegetarian and vegan options available.",indian,vegetarian,spicy
+Main Street Hardware,Retail,The Fan,2101 W Main St,Richmond,VA 23220,(804) 555-1012,,"Neighborhood hardware store. Knowledgeable staff and local expertise.",hardware,affordable
+Carytown Yoga,Services,Carytown,3134 W Cary St,Richmond,VA 23221,(804) 555-1123,https://carytownyoga.com,"Yoga and meditation classes for all levels. Peaceful studio space.",yoga,wellness,quiet
+The Local Burger Joint,Food & Dining,Scott's Addition,1313 Roseneath Rd,Richmond,VA 23230,(804) 555-1234,,"Gourmet burgers made with local ingredients. Craft beer selection.",burgers,beer,casual
+Richmond Music Center,Retail,The Fan,2005 W Main St,Richmond,VA 23220,(804) 555-1345,https://richmondmusic.com,"Musical instruments and equipment. Lessons and repairs available.",music,instruments
+Artisan Bakery,Food & Dining,The Fan,1905 W Cary St,Richmond,VA 23220,(804) 555-1456,,"Fresh-baked bread and pastries daily. Coffee and light breakfast.",bakery,coffee,breakfast
+Green Thumb Garden Center,Retail,West End,9500 Patterson Ave,Richmond,VA 23229,(804) 555-1567,,"Plants, seeds, and gardening supplies. Expert advice available.",garden,plants,outdoor
+RVA Auto Repair,Services,Shockoe Bottom,1512 E Main St,Richmond,VA 23219,(804) 555-1678,,"Full-service auto repair. Honest service and competitive pricing.",auto,repair,affordable
+The Porch Restaurant,Food & Dining,Church Hill,2903 E Broad St,Richmond,VA 23223,(804) 555-1789,https://theporchrva.com,"Southern comfort food with modern twist. Brunch favorites.",southern,brunch,family-friendly
+Downtown Cleaners,Services,Downtown,1001 E Main St,Richmond,VA 23219,(804) 555-1890,,"Professional dry cleaning and alterations. Same-day service available.",dry-cleaning,alterations
+Fresh Market,Retail,Short Pump,11600 W Broad St,Richmond,VA 23233,(804) 555-1901,https://freshmarketva.com,"Organic produce and specialty foods. Local and sustainable options.",grocery,organic,affordable
+VCU Campus Store,Retail,The Fan,901 W Main St,Richmond,VA 23220,(804) 555-2012,https://vcubookstore.com,"Textbooks, apparel, and school supplies. VCU official merchandise.",books,school,supplies
+Ironclad Pizza,Food & Dining,Shockoe Bottom,1405 E Cary St,Richmond,VA 23219,(804) 555-2123,,"Wood-fired pizza and craft cocktails. Industrial-chic atmosphere.",pizza,bar,casual
