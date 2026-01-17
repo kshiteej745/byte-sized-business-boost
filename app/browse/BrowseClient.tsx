@@ -122,42 +122,42 @@ export default function BrowseClient({
           </div>
         </div>
 
-        <button onClick={handleFilter} className="btn btn-primary mt-4">
-          Apply Filters
+        <button onClick={handleFilter} className="btn btn-primary mt-6">
+          Show results
         </button>
       </div>
 
       {businesses.length === 0 ? (
-        <div className="card text-center py-12">
-          <p className="text-gray-600 mb-4">No businesses found matching your criteria.</p>
+        <div className="card text-center py-16">
+          <p className="text-gray-700 mb-5 text-lg">Nothing found with those filters. Try changing them up.</p>
           <Link href="/browse" className="btn btn-secondary">
-            Clear Filters
+            Clear filters
           </Link>
         </div>
       ) : (
         <>
-          <p className="text-gray-600 mb-4">
-            Found {businesses.length} business{businesses.length !== 1 ? 'es' : ''}
+          <p className="text-gray-700 mb-6 text-lg">
+            Found {businesses.length} {businesses.length === 1 ? 'spot' : 'spots'}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {businesses.map((business) => (
               <Link
                 key={business.id}
                 href={`/business/${business.id}`}
-                className="card hover:shadow-lg transition-shadow focus:outline-none focus:ring-2 focus:ring-primary-500"
+                className="card group focus:outline-none focus:ring-2 focus:ring-primary-400"
               >
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{business.name}</h3>
+                <h3 className="text-xl font-heading font-semibold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">{business.name}</h3>
                 <p className="text-gray-600 text-sm mb-2">
                   {business.category} • {business.neighborhood}
                 </p>
                 <p className="text-gray-500 text-sm mb-3">{business.address}</p>
                 <div className="flex items-center gap-2">
-                  <span className="text-yellow-500">★</span>
-                  <span className="font-medium">
-                    {business.avgRating > 0 ? business.avgRating.toFixed(1) : 'No rating'}
+                  <span className="text-yellow-500 text-lg">★</span>
+                  <span className="font-semibold text-gray-900">
+                    {business.avgRating > 0 ? business.avgRating.toFixed(1) : 'No rating yet'}
                   </span>
                   <span className="text-gray-500 text-sm">
-                    ({business.reviewCount} review{business.reviewCount !== 1 ? 's' : ''})
+                    ({business.reviewCount} {business.reviewCount === 1 ? 'review' : 'reviews'})
                   </span>
                 </div>
               </Link>

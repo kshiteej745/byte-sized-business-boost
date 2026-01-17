@@ -1,10 +1,10 @@
-# Byte-Sized Business Boost
+# Neighborly
 
 A comprehensive React/Next.js web application for discovering and supporting local businesses in Richmond, Virginia. Built for the FBLA Coding & Programming competition (2025–2026).
 
 ## 🎯 Project Overview
 
-**Byte-Sized Business Boost** is an offline-capable business directory and review platform focused on Richmond, VA. The application enables users to browse local businesses, read and write reviews, find deals, save favorites, and generate customizable reports—all without requiring internet connectivity after initial setup.
+**Neighborly** is an offline-capable business directory and review platform focused on Richmond, VA. The application enables users to browse local businesses, read and write reviews, find deals, save favorites, and generate customizable reports—all without requiring internet connectivity after initial setup.
 
 ## 🛠️ Technology Stack
 

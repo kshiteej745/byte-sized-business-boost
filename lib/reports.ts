@@ -154,8 +154,23 @@ export function getCategoryDistribution(filters: ReportFilters) {
 export function getExpiringDeals(filters: ReportFilters) {
   const expiryDate = new Date();
   expiryDate.setDate(expiryDate.getDate() + (filters.expiryWindow || 7));
+  // Convert to Unix timestamp (seconds) since expiresOn is stored as Unix timestamp
+  const expiryTimestamp = Math.floor(expiryDate.getTime() / 1000);
 
-  let query = db.select({
+  const baseConditions = [
+    eq(deals.isActive, true),
+    sql`(${deals.expiresOn} IS NOT NULL AND ${deals.expiresOn} > unixepoch() AND ${deals.expiresOn} <= ${expiryTimestamp})`
+  ];
+
+  if (filters.category) {
+    baseConditions.push(eq(businesses.category, filters.category));
+  }
+
+  if (filters.neighborhood) {
+    baseConditions.push(eq(businesses.neighborhood, filters.neighborhood));
+  }
+
+  const query = db.select({
     dealId: deals.id,
     dealTitle: deals.title,
     couponCode: deals.couponCode,
@@ -168,24 +183,7 @@ export function getExpiringDeals(filters: ReportFilters) {
   })
     .from(deals)
     .innerJoin(businesses, eq(deals.businessId, businesses.id))
-    .where(and(
-      eq(deals.isActive, true),
-      deals.expiresOn ? lte(deals.expiresOn, expiryDate) : sql`1=0`
-    ));
-
-  const conditions = [];
-
-  if (filters.category) {
-    conditions.push(eq(businesses.category, filters.category));
-  }
-
-  if (filters.neighborhood) {
-    conditions.push(eq(businesses.neighborhood, filters.neighborhood));
-  }
-
-  if (conditions.length > 0) {
-    query = query.where(and(...query as any, ...conditions)) as any;
-  }
+    .where(and(...baseConditions));
 
   return query.all();
 }

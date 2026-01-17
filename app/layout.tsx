@@ -1,12 +1,22 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Lato, Work_Sans } from 'next/font/google'
 import './globals.css'
 import Navigation from './components/Navigation'
 
-const inter = Inter({ subsets: ['latin'] })
+const lato = Lato({ 
+  weight: ['300', '400', '700'],
+  subsets: ['latin'],
+  variable: '--font-lato',
+})
+
+const workSans = Work_Sans({ 
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin'],
+  variable: '--font-work-sans',
+})
 
 export const metadata: Metadata = {
-  title: 'Byte-Sized Business Boost - Richmond, VA',
+  title: 'Neighborly - Richmond, VA',
   description: 'Discover and support local businesses in Richmond, Virginia',
 }
 
@@ -17,15 +27,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${lato.variable} ${workSans.variable} font-sans`}>
         <Navigation />
         <main className="min-h-screen pb-8">
           {children}
         </main>
-        <footer className="bg-gray-800 text-white py-6 mt-12">
+        <footer className="bg-gray-800 text-white py-8 mt-16 border-t border-gray-700">
           <div className="container mx-auto px-4 text-center">
-            <p>&copy; 2025 Byte-Sized Business Boost. All rights reserved.</p>
-            <p className="text-sm text-gray-400 mt-2">Supporting Richmond, Virginia businesses</p>
+            <p className="text-gray-300">&copy; 2025 Neighborly. Made with care in Richmond.</p>
+            <p className="text-sm text-gray-500 mt-2">Supporting the businesses that make our city home</p>
           </div>
         </footer>
       </body>

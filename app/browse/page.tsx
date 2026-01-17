@@ -70,8 +70,9 @@ export default async function BrowsePage({
   const neighborhoods = Array.from(new Set(allBusinesses.map(b => b.neighborhood))).sort()
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-gray-900 mb-6">Browse Businesses</h1>
+    <div className="container mx-auto px-4 py-12 max-w-6xl">
+      <h1 className="text-4xl font-heading font-semibold text-gray-900 mb-2">Find what you're looking for</h1>
+      <p className="text-lg text-gray-600 mb-8">Browse Richmond businesses by category, neighborhood, or search</p>
       
       <BrowseClient
         businesses={results.map(b => ({

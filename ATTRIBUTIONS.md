@@ -1,6 +1,6 @@
 # Attributions
 
-This document lists all third-party libraries and their licenses used in the Byte-Sized Business Boost application.
+This document lists all third-party libraries and their licenses used in the Neighborly application.
 
 ## Dependencies
 

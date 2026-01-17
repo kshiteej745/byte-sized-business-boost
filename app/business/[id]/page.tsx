@@ -52,13 +52,14 @@ export default async function BusinessDetailPage({
   }
 
   // Get active deals
+  // expiresOn is stored as Unix timestamp (seconds), so compare with unixepoch()
   const activeDeals = await db.select()
     .from(deals)
     .where(
       and(
         eq(deals.businessId, businessId),
         eq(deals.isActive, true),
-        sql`(${deals.expiresOn} IS NULL OR ${deals.expiresOn} > datetime('now'))`
+        sql`(${deals.expiresOn} IS NULL OR ${deals.expiresOn} > unixepoch())`
       )
     )
 

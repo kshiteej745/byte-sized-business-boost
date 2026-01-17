@@ -5,6 +5,7 @@ import { eq, and, sql, desc } from 'drizzle-orm'
 
 export default async function DealsPage() {
   // Get all active deals
+  // expiresOn is stored as Unix timestamp (seconds), so compare with unixepoch()
   const activeDeals = await db.select({
     dealId: deals.id,
     dealTitle: deals.title,
@@ -22,7 +23,7 @@ export default async function DealsPage() {
     .where(
       and(
         eq(deals.isActive, true),
-        sql`(${deals.expiresOn} IS NULL OR ${deals.expiresOn} > datetime('now'))`
+        sql`(${deals.expiresOn} IS NULL OR ${deals.expiresOn} > unixepoch())`
       )
     )
     .orderBy(desc(deals.expiresOn))
@@ -40,24 +41,25 @@ export default async function DealsPage() {
   })
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-gray-900 mb-6">Active Deals & Coupons</h1>
+    <div className="container mx-auto px-4 py-12 max-w-6xl">
+      <h1 className="text-4xl font-heading font-semibold text-gray-900 mb-2">Current deals</h1>
+      <p className="text-lg text-gray-600 mb-8">Save money while supporting your neighborhood businesses</p>
 
       {activeDeals.length === 0 ? (
-        <div className="card text-center py-12">
-          <p className="text-gray-600 mb-4">No active deals available at the moment.</p>
+        <div className="card text-center py-16">
+          <p className="text-gray-700 mb-5 text-lg">No deals available right now. Check back soon!</p>
           <Link href="/browse" className="btn btn-primary">
-            Browse Businesses
+            Explore businesses
           </Link>
         </div>
       ) : (
         <>
           {expiringSoon.length > 0 && (
-            <div className="mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                <span className="badge badge-warning">Expiring Soon</span>
+            <div className="mb-10">
+              <h2 className="text-2xl font-heading font-semibold text-gray-900 mb-5 flex items-center gap-3">
+                <span className="badge badge-warning">Ending soon</span>
                 <span className="text-lg font-normal text-gray-600">
-                  ({expiringSoon.length} deal{expiringSoon.length !== 1 ? 's' : ''})
+                  {expiringSoon.length} {expiringSoon.length === 1 ? 'deal' : 'deals'} ending this week
                 </span>
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
@@ -68,7 +70,7 @@ export default async function DealsPage() {
             </div>
           )}
 
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">All Active Deals</h2>
+          <h2 className="text-2xl font-heading font-semibold text-gray-900 mb-6">All current deals</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {activeDeals.map((deal) => (
               <DealCard key={deal.dealId} deal={deal} isExpiringSoon={expiringSoon.some(d => d.dealId === deal.dealId)} />
@@ -90,15 +92,15 @@ function DealCard({ deal, isExpiringSoon }: { deal: any; isExpiringSoon: boolean
   return (
     <Link
       href={`/business/${deal.businessId}`}
-      className="card hover:shadow-lg transition-shadow focus:outline-none focus:ring-2 focus:ring-primary-500"
+      className="card group focus:outline-none focus:ring-2 focus:ring-primary-400"
     >
       {isExpiringSoon && (
         <div className="mb-3">
-          <span className="badge badge-warning">Expiring Soon</span>
+          <span className="badge badge-warning">Ending soon</span>
         </div>
       )}
       
-      <h3 className="text-xl font-semibold text-gray-900 mb-2">{deal.dealTitle}</h3>
+      <h3 className="text-xl font-heading font-semibold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">{deal.dealTitle}</h3>
       <p className="text-gray-700 mb-4">{deal.dealDescription}</p>
       
       {deal.couponCode && (
